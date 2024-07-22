@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors"
 
 import cloudinary from "cloudinary";
-import path from "path";
+
 
 app.use(cors());
 
@@ -27,10 +27,7 @@ app.use("/api/v1",postrouter)
 
 app.use("/api/v1",userrouter)
 
-// app.use(express.static(path.join(__dirname,"../frontend/build")));
-// app.get("*",(req,res)=>{
-//   res.sendFile(path.resolve(__dirname,"../frontend/build/index.html"))
-// })
+
 
 connectDb();
 
@@ -40,6 +37,8 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
   });
 
-app.listen (process.env.PORT,()=>{
-console.log(`server is running on port ${process.env.PORT}`)
+  const PORT=process.env.PORT || 4000;
+
+app.listen (PORT,()=>{
+console.log(`server is running on port ${PORT}`)
 })
