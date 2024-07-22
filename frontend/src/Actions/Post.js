@@ -1,10 +1,11 @@
 import axios from "axios";
+import { BASE_URL } from "./Backend_Link";
 export const likePost = (id) => async (dispatch) => {
   try {
     dispatch({
       type: "likeRequest",
     });
-    const { data } = await axios.get(`/api/v1/post/${id}`);
+    const { data } = await axios.get(`${BASE_URL}/api/v1/post/${id}`);
     dispatch({
       type: "likeSuccess",
       payload: data.message,
@@ -23,7 +24,7 @@ export const addcommentOnPost = (id, comment) => async (dispatch) => {
       type: "addcommentRequest",
     });
     const { data } = await axios.put(
-      `/api/v1/post/comment/${id}`,
+      `${BASE_URL}/api/v1/post/comment/${id}`,
       {
         comment,
       },
@@ -51,7 +52,7 @@ export const deletecommentOnPost = (id, commentid) => async (dispatch) => {
     dispatch({
       type: "deletecommentRequest",
     });
-    const { data } = await axios.delete(`/api/v1/post/comment/${id}`, {
+    const { data } = await axios.delete(`${BASE_URL}/api/v1/post/comment/${id}`, {
       data:{commentid},
     });
 
@@ -72,7 +73,7 @@ export const CreateNewPost = (caption, image) => async (dispatch) => {
     dispatch({
       type: "newPostRequest",
     });
-    const { data } = await axios.post(`/api/v1/post/upload`, {
+    const { data } = await axios.post(`${BASE_URL}/api/v1/post/upload`, {
       caption,
       image,
     },{
@@ -97,7 +98,7 @@ export const updateCaptionn = (caption,id) => async (dispatch) => {
     dispatch({
       type: "updateCaptionRequest",
     });
-    const { data } = await axios.put(`/api/v1/post/${id}`, {
+    const { data } = await axios.put(`${BASE_URL}/api/v1/post/${id}`, {
       caption,
       
     },{
@@ -123,7 +124,7 @@ export const deletepost= (id) => async (dispatch) => {
     dispatch({
       type: "deletepostRequest",
     });
-    const { data } = await axios.delete(`/api/v1/post/${id}`);
+    const { data } = await axios.delete(`${BASE_URL}/api/v1/post/${id}`);
 
     dispatch({
       type: "deletepostSuccess",

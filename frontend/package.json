@@ -1,7 +1,6 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-   "proxy": "https://mern-socila-media1.onrender.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -51,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ajv": "^7.2.4"
   }
 }
