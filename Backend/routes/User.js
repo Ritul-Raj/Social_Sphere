@@ -7,17 +7,31 @@ router.post("/register",register)
 router.post("/login",login);
 router.get("/logout",logout);
 
-router.get("/follow/:id",isAuthenticated,followuser);
+// router.get("/follow/:id",isAuthenticated,followuser);
 
-router.put("/update/password",isAuthenticated,updatePassword);
-router.put("/update/profile",isAuthenticated,updateProfile);
-router.delete("/delete/me",isAuthenticated,deleteMyprofile);
-router.get("/me",isAuthenticated,myProfile);
-router.get("/my/posts",isAuthenticated,getMyposts);
-router.get("/userposts/:id",isAuthenticated,getUserposts);
+// router.put("/update/password",isAuthenticated,updatePassword);
+// router.put("/update/profile",isAuthenticated,updateProfile);
+// router.delete("/delete/me",isAuthenticated,deleteMyprofile);
+// router.get("/me",isAuthenticated,myProfile);
+// router.get("/my/posts",isAuthenticated,getMyposts);
+// router.get("/userposts/:id",isAuthenticated,getUserposts);
 
-router.get("/user/:id",isAuthenticated,getProfileofOthers);
-router.get("/users",isAuthenticated,getAllUsers);
+// router.get("/user/:id",isAuthenticated,getProfileofOthers);
+// router.get("/users",isAuthenticated,getAllUsers);
+// router.post("/forgot/password",forgetPassword);
+// router.put("/password/reset/:token",resetpassword);
+
+router.get("/follow/:id",followuser);
+
+router.put("/update/password",updatePassword);
+router.put("/update/profile",updateProfile);
+router.delete("/delete/me",deleteMyprofile);
+router.get("/me",myProfile);
+router.get("/my/posts",getMyposts);
+router.get("/userposts/:id",getUserposts);
+
+router.get("/user/:id",getProfileofOthers);
+router.get("/users",getAllUsers);
 router.post("/forgot/password",forgetPassword);
 router.put("/password/reset/:token",resetpassword);
 export default router
