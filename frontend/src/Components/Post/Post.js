@@ -185,7 +185,7 @@ dispatch(loadUser());
      key={item._id} userid={item.user._id} 
      name={item.user.name} avatar={item.user.avatar.url} comment={item.comment} commentid={item._id} postid={postid} isAccount={isAccount} />
        }
-       ):<Typography>No comm ents yet</Typography>}
+       ):<Typography>No comments yet</Typography>}
 
      </div>
       
