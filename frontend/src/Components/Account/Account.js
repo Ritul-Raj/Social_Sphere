@@ -56,7 +56,7 @@ useEffect(()=>{
         {( posts && posts.length>0)?(posts.map((post)=>{
  return <Post key={post._id}
   // postimage="https://im.indiatimes.in/content/2023/Jul/Untitled-design---2023-07-11T160433058_64ad303a6e0ff.png?w=725&h=543&cc=1" 
-//   ownerName="Punnnet superstar"
+
     postid={post._id}
   caption={post.caption}
   postimage={post.image.url}
@@ -107,7 +107,7 @@ useEffect(()=>{
       <Dialog open={follwerstoggle} 
     onClose={()=> setfollowerstoggle(!follwerstoggle)} >
      <div className="DialogBox">
-      <Typography variant="h4">Follwers</Typography>
+      <Typography variant="h4">Followers</Typography>
       {user && user.followers.length>0?(user.followers.map((follower)=>(
           <User 
            key={follower._id} 
