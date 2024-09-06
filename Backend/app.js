@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 
 import cors from "cors"
 
+
 import cloudinary from "cloudinary";
 
 app.use(cors());
@@ -15,7 +16,6 @@ app.use(cors());
 // app.use(cors({
 //   origin: "http://localhost:3000", // Replace with your frontend domain
 // }));
-
 
 if(process.env.NODE_ENV!=="production"){
     config({path:"./config/.env"}) ;
