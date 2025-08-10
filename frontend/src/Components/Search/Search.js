@@ -20,7 +20,7 @@ const submithandler=(e)=>{
     <div className="search">
     <form className="searchForm" onSubmit={submithandler}>
       <Typography variant="h3" style={{ padding: "2vmax" }}>
-        Socila App
+        Social Sphere
       </Typography>
       
       
@@ -49,6 +49,7 @@ const submithandler=(e)=>{
         avatar={user.avatar.url}
     />)
 })}
+
 
 </div>
     </form>

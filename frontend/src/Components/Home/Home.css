@@ -3,11 +3,14 @@
     display: grid;
     grid-template-columns: 1fr 400px;
     height: 100vh;
+    
   }
   
   .homeleft {
-    background-image: linear-gradient(to right, #fff5bc, #cec1ff);
-  
+    /* background-image: linear-gradient(to right, #fff5bc, #cec1ff); */
+ 
+    background-image: linear-gradient(to right, #d0e7ff, #b3c6ff);
+
     overflow-y: auto;
     display: flex;
     flex-direction: column;

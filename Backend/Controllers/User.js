@@ -4,7 +4,7 @@ import { sendEmail } from "../middlewares/sendEmail.js";
 import crypto from "crypto";
 import cloudinary from "cloudinary";
 
-export const register=async(req,res)=>{
+export const  register=async(req,res)=>{
     try {
         const {name,email,password,avatar}=req.body;
         let user=await User.findOne({email});
@@ -24,7 +24,6 @@ export const register=async(req,res)=>{
         }).json({
             success:true,
             user
-            
         })
 
     } catch (error) {
@@ -38,7 +37,8 @@ export const register=async(req,res)=>{
 export const login= async(req,res)=>{
 try {
     const {email,password}=req.body;
-    let user=await User.findOne({email}).select("+password").populate("posts followers followings");
+    let user=await User.findOne({email}).select("+password").populate("posts followers followings");   
+    
     if(!user){
         return res.status(400).json({success:false ,message:"User Does Not Exist"})
     }
@@ -86,8 +86,10 @@ export const logout=async(req,res)=>{
             message:error.message,
         });
     }
-}
+}                                                            
   
+  
+
 
 export const followuser=async(req,res)=>{
     try {
@@ -356,10 +358,9 @@ export const forgetPassword=async(req,res)=>{
 const resetPasswordToken = await user.getResetPasswordToken();
        await user.save();
 
-const resetUrl=`${req.protocol}://${req.get("host")}/password/reset/${resetPasswordToken}`;
+const resetUrl=`${req.protocol}://${req.get("host")}/password/reset/${resetPasswordToken}`; // abhi url 4000 wala aaeaga jb hmm host krenge then ek domai rhega to dikkat nhi hoga
        
 const message=`Reset your password by clicking ont the link below:\n\n ${resetUrl}`;
-
  try {
     await sendEmail({            
         email:user.email,

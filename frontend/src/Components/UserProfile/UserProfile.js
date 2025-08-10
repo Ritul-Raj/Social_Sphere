@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,6 +9,7 @@ import { Avatar, Button, Dialog, Typography } from '@mui/material';
 import { useAlert } from 'react-alert'
 
 import User from '../User/User';
+
 import {useParams} from 'react-router-dom'
 function  UserProfile() {
 const dispatch=useDispatch();
@@ -19,7 +19,7 @@ const {loading,error,posts} =useSelector((state)=>state.userPosts)
 const {error:followError,message,loading:followloading}=useSelector((state)=>state.like)
 
 
-const {user ,loading:userloading,error:userError }=useSelector((state)=>state.userProfile);  
+const { user ,loading:userloading,error:userError }=useSelector((state)=>state.userProfile);  
 
 const params=useParams();
 const[follwerstoggle,setfollowerstoggle]=useState(false);
@@ -112,7 +112,7 @@ useEffect(()=>{
       <div>
         <button onClick={()=> setfollowerstoggle(!followingtoogle)} >
            <Typography> Followers</Typography> 
-       </button>
+       </button>  
        <Typography>{user.followers.length}</Typography> 
       </div>
 

@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
+    "start-server":"nodemon app.js --ignore '../frontend'",
     "dev": "nodemon app.js"
   },
+  
   "author": "",
   "license": "ISC",
   "dependencies": {

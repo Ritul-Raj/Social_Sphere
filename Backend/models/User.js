@@ -3,7 +3,7 @@ import bcrypt from "bcrypt"
 import Jwt  from "jsonwebtoken";
 import crypto from "crypto";
 
-const userSchema=new mongoose .Schema({
+const userSchema=new mongoose.Schema({
 name:{
     type:String,
     required:[true,"please enter a name"]
@@ -49,8 +49,9 @@ resetPasswordExpire:Date,
 
 
 
-userSchema.pre("save",async function(next){
-    if(this.isModified("password")){
+userSchema.pre("save",async function(next){          // userSchema: This refers to the Mongoose schema you've created for the user model.
+                                                   //.pre: it is a pre-hook or pre-middleware in Mongoose, which allows you to run some function before a specific event (like save, validate, remove) happens.                                                //"save": The "save" event in Mongoose occurs when a document (in this case, a user) is saved to the database
+if(this.isModified("password")){
         this.password=await bcrypt.hash(this.password,10);
     }
     next();
@@ -68,9 +69,7 @@ const resetToken=crypto.randomBytes(20).toString("hex");
 // console.log(resetToken)
 this.resetPasswordToken=crypto.createHash("sha256").update(resetToken).digest("hex");
 this.resetPasswordExpire=Date.now() + 10*20*1000;
- 
 return resetToken;
-
 }   
 
 export const User=mongoose.model("User",userSchema)

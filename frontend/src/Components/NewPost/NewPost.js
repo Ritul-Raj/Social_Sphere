@@ -45,8 +45,6 @@ useEffect(()=>{
 },[dispatch,error,message,alert])
 
 
-
-
   return (
     <div className='newPost'>
     <form className='newPostForm' onSubmit={Submithandler}>

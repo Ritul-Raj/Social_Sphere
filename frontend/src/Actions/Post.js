@@ -1,11 +1,12 @@
 import axios from "axios";
 import { BASE_URL } from "./Backend_Link";
 export const likePost = (id) => async (dispatch) => {
+
   try {
     dispatch({
       type: "likeRequest",
     });
-    const { data } = await axios.get(`${BASE_URL}/api/v1/post/${id}`);
+    const { data } = await axios.get(`${BASE_URL}/api/v1/post/${id}`) ;
     dispatch({
       type: "likeSuccess",
       payload: data.message,
@@ -118,6 +119,7 @@ export const updateCaptionn = (caption,id) => async (dispatch) => {
     });
   }
 };
+
 
 export const deletepost= (id) => async (dispatch) => {
   try {

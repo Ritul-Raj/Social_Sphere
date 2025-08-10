@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+
 import { resetPassword } from "../../Actions/User";
+
+// mail trap mai token jaaega
 import "./ResetPassword.css";
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");

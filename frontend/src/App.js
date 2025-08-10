@@ -46,7 +46,6 @@ const {isAuthenticated}=useSelector((state)=>state.user)
     <Route path='/user/:id' element={isAuthenticated ?<UserProfile/>:<Login/>}></Route>
     <Route path='search' element={isAuthenticated ?<Search/>:<Login/>}></Route>
     <Route path='*' element={<NotFound/>}></Route>
-
     </Routes>
     </Router>
    
